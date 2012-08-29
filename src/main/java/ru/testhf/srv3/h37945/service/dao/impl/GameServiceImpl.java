@@ -15,6 +15,10 @@ public class GameServiceImpl implements GameService {
     @Autowired
     private GameDAO gameDAO;
 
+    public void setGameDAO(GameDAO gameDAO) {
+        this.gameDAO = gameDAO;
+    }
+
     public int addGame(Game game) throws SQLException {
         return gameDAO.addGame(game);
     }

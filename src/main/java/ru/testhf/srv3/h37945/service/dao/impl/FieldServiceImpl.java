@@ -15,6 +15,10 @@ public class FieldServiceImpl implements FieldService {
     @Autowired
     private FieldDAO fieldDAO;
 
+    public void setFieldDAO(FieldDAO fieldDAO) {
+        this.fieldDAO = fieldDAO;
+    }
+
     public int addField(Field field) throws SQLException {
         return fieldDAO.addField(field);
     }

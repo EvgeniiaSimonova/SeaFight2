@@ -15,6 +15,10 @@ public class RequestServiceImpl implements RequestService {
     @Autowired
     private RequestDAO requestDAO;
 
+    public void setRequestDAO(RequestDAO requestDAO) {
+        this.requestDAO = requestDAO;
+    }
+
     public int addRequest(Request request) throws SQLException {
         return requestDAO.addRequest(request);
     }
