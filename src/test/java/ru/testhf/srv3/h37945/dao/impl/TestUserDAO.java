@@ -23,7 +23,7 @@ public class TestUserDAO {
     private UserDAO userDAO;
 
     @Before
-    public void testLength() {
+    public void getLength() {
         List<User> users = userDAO.userList();
         length = users.size();
     }
@@ -38,11 +38,12 @@ public class TestUserDAO {
     @Test
     public void testUpdateUser() throws SQLException {
         userDAO.updateUser(login);
+        org.junit.Assert.assertEquals("ROLE_USER, ROLE_ADMIN", userDAO.getUserByLogin(login).getRole());
     }
 
     @Test
     public void testGetUserByLogin() throws SQLException {
-        userDAO.getUserByLogin(login);
+        org.junit.Assert.assertEquals("password", userDAO.getUserByLogin(login).getPassword());
     }
 
     @Test

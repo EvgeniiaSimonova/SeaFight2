@@ -27,18 +27,16 @@ public class TestGameDAO {
         length = gameDAO.gamesList().size();
         Game game = new Game("user1","user2",false,"",0,0);
         id = gameDAO.addGame(game);
-        org.junit.Assert.assertEquals(length+1, gameDAO.gamesList().size());
     }
 
     @After
     public void deleteGame() throws SQLException{
         gameDAO.deleteGame(id);
-        org.junit.Assert.assertEquals(length, gameDAO.gamesList().size());
     }
 
     @Test
     public void testGetGameById() throws SQLException {
-        gameDAO.getGameById(id);
+        org.junit.Assert.assertEquals("user2", gameDAO.getGameById(id).getSecondLogin());
     }
 
     @Test

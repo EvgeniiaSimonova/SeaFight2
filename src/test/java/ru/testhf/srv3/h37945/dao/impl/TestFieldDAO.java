@@ -26,18 +26,16 @@ public class TestFieldDAO {
         length = fieldDAO.fieldList().size();
         Field field = new Field("", "", false);
         id = fieldDAO.addField(field);
-        org.junit.Assert.assertEquals(length+1, fieldDAO.fieldList().size());
     }
 
     @After
     public void testDeleteField() throws SQLException{
         fieldDAO.deleteField(id);
-        org.junit.Assert.assertEquals(length, fieldDAO.fieldList().size());
     }
 
     @Test
     public void testGetFieldById() throws SQLException{
-        fieldDAO.getFieldById(id);
+        org.junit.Assert.assertFalse(fieldDAO.getFieldById(id).isKilled());
     }
 
     @Test

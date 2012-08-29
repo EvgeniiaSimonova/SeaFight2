@@ -28,18 +28,16 @@ public class TestRequestDAO {
         length = requestDAO.requestList().size();
         Request request = new Request("user1", "user2", 0, -1);
         id = requestDAO.addRequest(request);
-        org.junit.Assert.assertEquals(length + 1, requestDAO.requestList().size());
     }
 
     @After
     public void deleteRequest() throws SQLException{
         requestDAO.deleteRequest(id);
-        org.junit.Assert.assertEquals(length, requestDAO.requestList().size());
     }
 
     @Test
     public void testRequestById() throws SQLException {
-        requestDAO.getRequestById(id);
+        org.junit.Assert.assertEquals("user1", requestDAO.getRequestById(id).getFirstLogin());
     }
 
    @Test
